@@ -4,6 +4,7 @@ A custom node designed to complement [KwaiKolorsWrapper](https://github.com/kija
 example workflow
 # Install:
 Automatic:
+
 Use the "install via git url" option in comfyui manager 
 
 Manual:
