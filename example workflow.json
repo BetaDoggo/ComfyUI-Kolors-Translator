@@ -1,0 +1,420 @@
+{
+  "last_node_id": 61,
+  "last_link_id": 88,
+  "nodes": [
+    {
+      "id": 60,
+      "type": "DownloadAndLoadKolorsModel",
+      "pos": [
+        -443,
+        156
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "kolors_model",
+          "type": "KOLORSMODEL",
+          "links": [
+            87
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadKolorsModel"
+      },
+      "widgets_values": [
+        "Kwai-Kolors/Kolors",
+        "fp16"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "KolorsTextEncode",
+      "pos": [
+        -67,
+        434
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "chatglm3_model",
+          "type": "CHATGLM3MODEL",
+          "link": 84
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 85,
+          "widget": {
+            "name": "prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "kolors_embeds",
+          "type": "KOLORS_EMBEDS",
+          "links": [
+            86
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KolorsTextEncode"
+      },
+      "widgets_values": [
+        "",
+        "",
+        1
+      ]
+    },
+    {
+      "id": 53,
+      "type": "TranslateToChinese",
+      "pos": [
+        -506,
+        397
+      ],
+      "size": {
+        "0": 399.30816650390625,
+        "1": 185.78746032714844
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "translated_text",
+          "type": "STRING",
+          "links": [
+            85
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TranslateToChinese"
+      },
+      "widgets_values": [
+        "Three transparent glass bottles on a wooden table. The one on the left has red liquid and the number 1. The one in the middle has blue liquid and the number 2. The one on the right has green liquid and the number 3 ",
+        false
+      ]
+    },
+    {
+      "id": 59,
+      "type": "LoadChatGLM3",
+      "pos": [
+        -483,
+        282
+      ],
+      "size": {
+        "0": 363.58087158203125,
+        "1": 58
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "chatglm3_model",
+          "type": "CHATGLM3MODEL",
+          "links": [
+            84
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadChatGLM3"
+      },
+      "widgets_values": [
+        "chatglm3-4bit.safetensors"
+      ]
+    },
+    {
+      "id": 55,
+      "type": "VAELoader",
+      "pos": [
+        -23,
+        159
+      ],
+      "size": [
+        360.7307122891415,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            81
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "sdxl_vae-fp16fix-blessed.safetensors"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -24,
+        285
+      ],
+      "size": [
+        353.63071228914146,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            83
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1216,
+        768,
+        1
+      ]
+    },
+    {
+      "id": 54,
+      "type": "KolorsSampler",
+      "pos": [
+        347,
+        438
+      ],
+      "size": {
+        "0": 315,
+        "1": 266
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "kolors_model",
+          "type": "KOLORSMODEL",
+          "link": 87
+        },
+        {
+          "name": "kolors_embeds",
+          "type": "KOLORS_EMBEDS",
+          "link": 86
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            82
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KolorsSampler"
+      },
+      "widgets_values": [
+        1216,
+        768,
+        244206459278038,
+        "randomize",
+        20,
+        7,
+        "EulerDiscreteScheduler",
+        1
+      ]
+    },
+    {
+      "id": 13,
+      "type": "VAEDecode",
+      "pos": [
+        355,
+        324
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 82
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 81
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            88
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 61,
+      "type": "SaveImage",
+      "pos": [
+        684,
+        182
+      ],
+      "size": [
+        702.7282593259492,
+        523.1134106573824
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 88
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    }
+  ],
+  "links": [
+    [
+      81,
+      55,
+      0,
+      13,
+      1,
+      "VAE"
+    ],
+    [
+      82,
+      54,
+      0,
+      13,
+      0,
+      "LATENT"
+    ],
+    [
+      83,
+      38,
+      0,
+      54,
+      2,
+      "LATENT"
+    ],
+    [
+      84,
+      59,
+      0,
+      58,
+      0,
+      "CHATGLM3MODEL"
+    ],
+    [
+      85,
+      53,
+      0,
+      58,
+      1,
+      "STRING"
+    ],
+    [
+      86,
+      58,
+      0,
+      54,
+      1,
+      "KOLORS_EMBEDS"
+    ],
+    [
+      87,
+      60,
+      0,
+      54,
+      0,
+      "KOLORSMODEL"
+    ],
+    [
+      88,
+      13,
+      0,
+      61,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9090909090909091,
+      "offset": {
+        "0": 568.1472877108591,
+        "1": 95.31869845008966
+      }
+    }
+  },
+  "version": 0.4
+}
