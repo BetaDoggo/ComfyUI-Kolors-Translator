@@ -1,2 +1,4 @@
+scikit-build-core
 huggingface-hub
-llama-cpp-python --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+llama-cpp-python
