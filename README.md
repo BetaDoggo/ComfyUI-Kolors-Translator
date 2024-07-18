@@ -3,9 +3,10 @@ A custom node designed to complement [KwaiKolorsWrapper](https://github.com/kija
 ![image](https://github.com/BetaDoggo/ComfyUI-Kolors-Translator/blob/main/preview.png)
 example workflow
 # Install:
-Automatic:
+Semiautomatic(portable install and Swarm only):
 
-Use the "install via git url" option in comfyui manager 
+1. Clone the repo into your custom nodes folder
+2. Run `python_embeded\python.exe -m pip install -r .\ComfyUI\custom_nodes\ComfyUI-Kolors-Translator\requirements.txt` from your comfyUI folder
 
 Manual:
 1. Clone the repo into your custom nodes folder
