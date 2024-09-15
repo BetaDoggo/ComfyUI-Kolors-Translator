@@ -5,10 +5,6 @@ from llama_cpp import Llama
 from huggingface_hub import hf_hub_download
 
 class TranslateToChinese:
-    def __init__(self):
-        # We don't initialize the model here anymore
-        pass
-
     @classmethod
     def INPUT_TYPES(s):
         return {
